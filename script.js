@@ -1,13 +1,18 @@
-function clr() {
-    document.getElementById("result").value = "";
+const DisplayOutput = document.getElementById('display');
+
+function appendToDisplay(input) {
+    DisplayOutput.value += input;
 }
 
-function display(val) {
-    document.getElementById("result").value += val;
+function calculate() {
+    try {
+        DisplayOutput.value = eval(DisplayOutput.value);
+    }
+    catch (error) {
+        DisplayOutput.value = 'Syntax Error';
+    }
 }
 
-function equate() {
-    let x = document.getElementById("result").value;
-    let y = eval(x);
-    document.getElementById("result").value = y;
+function clearDisplay() {
+    DisplayOutput.value = '';
 }
